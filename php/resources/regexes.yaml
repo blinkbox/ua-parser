@@ -1,5 +1,49 @@
 user_agent_parsers:
   #### SPECIAL CASES TOP ####
+    
+  ##########
+  # Blinkbox Devices
+  ##########
+  
+  # Samsung
+  - regex: 'Maple \d+\.\d+\.\d+ (Samsung) TV (\d+)'
+    family_replacement: 'Samsung'
+  - regex: '(SmartHub); SMART-TV; U; Linux/SmartTV; Maple(2012)'
+    family_replacement: 'Samsung'
+  - regex: '(SmartHub); SMART-TV; U; Linux/SmartTV\+(\d+); Maple\d+'
+    family_replacement: 'Samsung'  
+	
+  # Toshiba
+  - regex: '(Toshiba); DTV_TL'
+    family_replacement: 'Toshiba'  
+    v1_replacement: '2011'
+  - regex: '(Toshiba); DTV_RL'
+    family_replacement: 'Toshiba'  
+    v1_replacement: '2012'
+	
+  # LG
+  - regex: 'LG NetCast.(TV|Media)-(\d+)'
+    family_replacement: 'LG'  
+	
+  # Technika
+  - regex: '(Technika) Media Streamer;'
+    family_replacement: 'Technika Avtrex'  
+  - regex: '(MStar)'
+    family_replacement: 'Technika $1'
+    
+  # Philips
+  - regex: '(Philips)-AVM-(\d+)'
+    family_replacement: 'Philips'  
+  - regex: '(Philips).*NETTV/3\.(1)'
+    family_replacement: 'Philips'  
+    v1_replacement: '2011'
+  - regex: '(Philips).*NETTV/(3.2|3.3|4.0)'
+    family_replacement: 'Philips'  
+    v1_replacement: '2012'
+  
+  ##########
+  # END Blinkbox Devices
+  ##########
 
   # HbbTV standard defines what features the browser should understand.
   # but it's like targeting "HTML5 browsers", effective browser support depends on the model
@@ -451,12 +495,12 @@ os_parsers:
   # Philips : not found any other way than a manual mapping
   # Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Philips; ; ; ; ) CE-HTML/1.0 NETTV/4.1.3 PHILIPSTV/1.1.1; en) Presto/2.10.250 Version/11.60
   # Opera/9.80 (Linux mips ; U; HbbTV/1.1.1 (; Philips; ; ; ; ) CE-HTML/1.0 NETTV/3.2.1; en) Presto/2.6.33 Version/10.70
-  - regex: 'HbbTV/1.1.1 \(; (Philips);.*NETTV/4'
-    os_v1_replacement: '2013'
-  - regex: 'HbbTV/1.1.1 \(; (Philips);.*NETTV/3'
-    os_v1_replacement: '2012'
-  - regex: 'HbbTV/1.1.1 \(; (Philips);.*NETTV/2'
-    os_v1_replacement: '2011'
+  #- regex: 'HbbTV/1.1.1 \(; (Philips);.*NETTV/4'
+  #  os_v1_replacement: '2013'
+  #- regex: 'HbbTV/1.1.1 \(; (Philips);.*NETTV/3'
+  #  os_v1_replacement: '2012'
+  #- regex: 'HbbTV/1.1.1 \(; (Philips);.*NETTV/2'
+  #  os_v1_replacement: '2011'
 
   # the HbbTV emulator developers use HbbTV/1.1.1 (;;;;;) firetv-firefox-plugin 1.1.20
   - regex: 'HbbTV/\d+\.\d+\.\d+.*(firetv)-firefox-plugin (\d+).(\d+).(\d+)'
@@ -693,6 +737,32 @@ os_parsers:
     os_replacement: 'Solaris'
 
 device_parsers:
+
+  ##########
+  # Blinkbox Devices
+  ##########
+
+  # LG
+  - regex: 'LG NetCast.([A-Za-z0-9]+)'
+    device_replacement: 'LG NetCast $1'  
+
+  # Toshiba
+  - regex: 'Toshiba'  
+    device_replacement: 'Toshiba'
+    
+  # Philips
+  - regex: 'Philips-AVM'  
+    device_replacement: 'Philips Net TV'    
+  - regex: 'Philips.*NETTV/'  
+    device_replacement: 'Philips Net TV'    
+
+  # Technika
+  - regex: '(Technika)'
+  
+  ##########
+  # END Blinkbox Devices
+  ##########
+   
   ##########
   # incomplete!
   # multiple replacement placeholds i.e. ($1) ($2) help solve problem of single device with multiple representations in ua
