@@ -40,6 +40,11 @@ user_agent_parsers:
   - regex: '(Philips).*NETTV/(3.2|3.3|4.0)'
     family_replacement: 'Philips'  
     v1_replacement: '2012'
+    
+  # Panasonic
+  - regex: '(Viera)/(3.2)'
+    family_replacement: 'Panasonic'  
+    v1_replacement: '2013'
   
   ##########
   # END Blinkbox Devices
@@ -742,6 +747,11 @@ device_parsers:
   # Blinkbox Devices
   ##########
 
+  # Samsung
+  - regex: '(Samsung)'
+  - regex: '(SmartHub)'
+    device_replacement: 'Samsung'  
+  
   # LG
   - regex: 'LG NetCast.([A-Za-z0-9]+)'
     device_replacement: 'LG NetCast $1'  
@@ -758,6 +768,10 @@ device_parsers:
 
   # Technika
   - regex: '(Technika)'
+
+  # Panasonic
+  - regex: '(Viera)'
+    device_replacement: 'Panasonic'    
   
   ##########
   # END Blinkbox Devices
