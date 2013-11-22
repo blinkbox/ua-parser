@@ -1,1 +1,1 @@
-C:\wamp\bin\php\php5.3.13\php %~dp0..\uaparser-cli.php -c -n
+C:\wamp\bin\php\php5.4.12\php %~dp0..\uaparser-cli.php -c -n

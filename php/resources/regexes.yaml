@@ -45,6 +45,9 @@ user_agent_parsers:
   - regex: '(Viera)/(3.2)'
     family_replacement: 'Panasonic'  
     v1_replacement: '2013'
+    
+  # PlayStation
+  - regex: '(PlayStation) (\d+)'
   
   ##########
   # END Blinkbox Devices
@@ -772,6 +775,9 @@ device_parsers:
   # Panasonic
   - regex: '(Viera)'
     device_replacement: 'Panasonic'    
+
+  # PlayStation
+  - regex: '(PlayStation)'
   
   ##########
   # END Blinkbox Devices
