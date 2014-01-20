@@ -769,22 +769,9 @@ device_parsers:
   - regex: '(SmartHub)'
     device_replacement: 'Samsung'  
   
-  # LG
-  # BP520 is 2012 rather than 2011, for example Faramir:
-  # Mozilla/5.0 (DirectFB; U; Linux armv6l; en) AppleWebKit/531.2+ (KHTML, like Gecko) Safari/531.2+ LG Browser/4.1.4(+3D+PORTAL_KEY+3D+BDP; LGE; Media/BP520; 7506; abc;); LG NetCast.Media-2011
-  - regex: 'Media/(BP520)[;\s\d\w)]+LG NetCast.(TV|Media)-\d+'
-    device_replacement: 'LG NetCast $1'  
-    brand_replacement: 'LG'
-    model_replacement: '$1'
-
-  # BP530 is 2013 rather than 2011, for example Legolas:
-  # Mozilla/5.0 (DirectFB; U; Linux armv6l; en) AppleWebKit/531.2+ (KHTML, like Gecko) Safari/531.2+ LG Browser/4.1.4(+3D+PORTAL_KEY+BDP; LGE; Media/BP530; 2800; abc;); LG NetCast.Media-2011
-  # BP730 is 2013 rather than 2012, for example Bilbo:
-  # Mozilla/5.0 (DirectFB; Linux armv7l) AppleWebKit/534.26+ (KHTML, like Gecko) Version/5.0 Safari/534.26+ LG Browser/5.00.00(+BDP; LGE; Media/BP730; 1766; abc;); LG NetCast.Media-2012 /1766 (LG, Media/BP730, wired)
-  - regex: 'Media/(BP730|BP530)[;\s\d\w)]+LG NetCast.(TV|Media)-\d+'
-    device_replacement: 'LG NetCast $1'  
-    brand_replacement: 'LG'
-    model_replacement: '$1'
+  # LG Bluray players provide model name
+  - regex: 'Media/([A-Za-z0-9]+)[;\s\d\w)]+LG NetCast.Media-\d+'
+    device_replacement: 'LG NetCast Media $1'
 
   # LG
   - regex: 'LG NetCast.([A-Za-z0-9]+)'
